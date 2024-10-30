@@ -149,6 +149,5 @@ class OddballParticle extends Particle {
         cy = (int)(cy + b * sin(t));
       }
     }
-
   }
 }
