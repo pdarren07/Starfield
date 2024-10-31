@@ -2,7 +2,7 @@ Particle[] lan;
 int myTheme;
 double mySize;
 boolean night = false;
-PImage tree/*, moon*/;
+PImage tree, moon;
 float offset = 0;
 float easing = 0.05;
 int[] starColors = {
@@ -16,7 +16,7 @@ void setup() {
   size(800, 800);
   background(0);
   tree = loadImage("https://img.freepik.com/premium-photo/starry-night-sky-background-illustration_954894-65493.jpg");
-  //moon = loadImage("https://static.vecteezy.com/system/resources/previews/045/354/775/non_2x/lunar-radiance-clear-background-moon-free-png.png");
+  moon = loadImage("https://static.vecteezy.com/system/resources/previews/045/354/775/non_2x/lunar-radiance-clear-background-moon-free-png.png");
   lan = new Particle[50];
     int pos1 = (int)(Math.random() * width);
     int pos2 = (int)(Math.random() * height);
@@ -126,9 +126,9 @@ class OddballParticle extends Particle {
     if(night == false)
       rect((float)myX, (float)myY, mySize, mySize);
     if(night == true){
-      fill(255,0,0);
-      ellipse(cx, cy, 50, 50);
-      //image(moon, cx, cy, width/15, height/15);
+      //fill(255,0,0);
+      //ellipse(cx, cy, 50, 50);
+      image(moon, cx, cy, width/15, height/15);
     }
   }
   void move(){
