@@ -104,7 +104,7 @@ void keyPressed() {
 void mousePressed() {
   if (!night) {
     night = true;
-    lan = new Particle[(int)(Math.random()*15)+10];
+    lan = new Particle[50];
     for (int i = 0; i < lan.length; i++) {
       lan[i] = new Particle((int)(Math.random() * width), (int)(Math.random() * height));
       lan[0] = new OddballParticle(-10, 50);
