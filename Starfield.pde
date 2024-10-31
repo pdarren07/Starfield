@@ -32,7 +32,7 @@ void draw() {
     rect(0, 0, width, height);
   } else {
     image(tree, 0, 0, width, height);
-    tint(255, 127);
+    //tint(255, 127);
   }
   for (int i = 0; i < lan.length; i++) {
     lan[i].show();
