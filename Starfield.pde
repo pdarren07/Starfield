@@ -89,7 +89,7 @@ class Particle {
 }
 
 void keyPressed() {
-  night = false;
+  night = !night;
   background(0);
   lan = new Particle[50];
     int pos1 = (int)(Math.random() * width);
@@ -98,6 +98,8 @@ void keyPressed() {
     lan[i] = new Particle(pos1, pos2);
     lan[0] = new OddballParticle(pos1, pos2);
   }
+  if(!night)
+        background(0);
 }
 
 void mousePressed() {
