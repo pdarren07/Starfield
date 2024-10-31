@@ -90,7 +90,6 @@ class Particle {
 
 void keyPressed() {
   night = !night;
-  background(0);
   lan = new Particle[50];
     int pos1 = (int)(Math.random() * width);
     int pos2 = (int)(Math.random() * height);
