@@ -2,7 +2,7 @@ Particle[] lan;
 int myTheme;
 double mySize;
 boolean night = false;
-PImage tree, moon;
+PImage tree/*, moon*/;
 float offset = 0;
 float easing = 0.05;
 int[] starColors = {
@@ -16,7 +16,7 @@ void setup() {
   size(800, 800);
   background(0);
   tree = loadImage("https://img.freepik.com/premium-photo/starry-night-sky-background-illustration_954894-65493.jpg");
-  moon = loadImage("https://static.vecteezy.com/system/resources/previews/045/354/775/non_2x/lunar-radiance-clear-background-moon-free-png.png");
+  //moon = loadImage("https://static.vecteezy.com/system/resources/previews/045/354/775/non_2x/lunar-radiance-clear-background-moon-free-png.png");
   lan = new Particle[50];
     int pos1 = (int)(Math.random() * width);
     int pos2 = (int)(Math.random() * height);
@@ -116,7 +116,7 @@ class OddballParticle extends Particle {
   int cy = 100;//y coord of moon
   int a = 450; // major axis of ellipse
   int b = 250; // minor axis of ellipse
-  float t = millis()/10000000.0f; //increase to slow down the movement
+  float t = millis()/10000.0f; //increase to slow down the movement
   OddballParticle(int x, int y) {
     super(x, y);
     myColor = color((int)(Math.random() * 255), (int)(Math.random() * 255), (int)(Math.random() * 255));
@@ -127,7 +127,8 @@ class OddballParticle extends Particle {
       rect((float)myX, (float)myY, mySize, mySize);
     if(night == true){
       fill(255,0,0);
-      image(moon, cx, cy, width/15, height/15);
+      ellipse(cx, cy, 50, 50);
+      //image(moon, cx, cy, width/15, height/15);
     }
   }
   void move(){
