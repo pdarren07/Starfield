@@ -17,6 +17,24 @@ void setup() {
   background(0);
   tree = loadImage("https://img.freepik.com/premium-photo/starry-night-sky-background-illustration_954894-65493.jpg");
   moon = loadImage("https://static.vecteezy.com/system/resources/previews/045/354/775/non_2x/lunar-radiance-clear-background-moon-free-png.png");
+  PImage original = loadImage("https://img.freepik.com/premium-photo/starry-night-sky-background-illustration_954894-65493.jpg");
+  
+  // Create a new image with an alpha channel
+  tree = createImage(original.width, original.height, ARGB);
+  tree.copy(original, 0, 0, original.width, original.height, 0, 0, original.width, original.height);
+  
+  // Modify each pixel's alpha value to make the image semi-transparent
+  tree.loadPixels();
+  for (int i = 0; i < tree.pixels.length; i++) {
+    color pixelColor = tree.pixels[i];
+    int r = (pixelColor >> 16) & 0xFF;
+    int g = (pixelColor >> 8) & 0xFF;
+    int b = pixelColor & 0xFF;
+    
+    // Set the new color with semi-transparency (alpha = 128)
+    tree.pixels[i] = color(r, g, b, 128);
+  }
+  tree.updatePixels();
   lan = new Particle[50];
     int pos1 = (int)(Math.random() * width);
     int pos2 = (int)(Math.random() * height);
